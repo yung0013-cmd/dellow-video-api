@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: dellow-video-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: API_TOKEN
+        generateValue: true
+      - key: ALLOWED_ORIGINS
+        sync: false
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: 10000
